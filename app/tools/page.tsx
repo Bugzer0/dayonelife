@@ -1,0 +1,51 @@
+import toolsData from '@/data/toolsData'
+import dictionary from '@/data/dictionary'
+import { genPageMetadata } from 'app/seo'
+
+export const metadata = genPageMetadata({ title: dictionary.tools.title })
+
+export default function Tools() {
+  return (
+    <>
+      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+          <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 dark:text-gray-100">
+            {dictionary.tools.title}
+          </h1>
+          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+            {dictionary.tools.description}
+          </p>
+        </div>
+        <div className="grid grid-cols-2 gap-4 pt-4">
+          {toolsData.map((tool, index) => (
+            <div
+              key={index}
+              className="border-opacity-60 col-span-2 rounded-md border-2 border-gray-200 xl:col-span-1 dark:border-gray-700"
+            >
+              <div className="flex h-full w-full flex-col justify-between p-6">
+                <h2 className="mb-3 text-2xl leading-8 font-bold tracking-tight">
+                  <a href={tool.href} aria-label={`Link to ${tool.title}`} target="_blank">
+                    {tool.title}
+                  </a>
+                </h2>
+                <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
+                  {tool.description}
+                </p>
+                {tool.href && (
+                  <a
+                    target="_blank"
+                    href={tool.href}
+                    className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 text-base leading-6 font-medium"
+                    aria-label={`Link to ${tool.title}`}
+                  >
+                    {dictionary.tools.useTool} &rarr;
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  )
+}
