@@ -11,7 +11,8 @@ on:
 
   # Chạy tự động theo lịch (mỗi ngày lúc 6h sáng UTC+7 = 23h UTC đêm trước)
   schedule:
-    - cron: '0 23 * * *'
+    - cron: '0 5 * * *'
+    - cron: '0 6 * * *'
 
 permissions:
   contents: write
