@@ -1,7 +1,7 @@
 import Link from '@/components/Link'
 import dictionary from '@/data/dictionary'
 
-const APP_STORE_URL = 'https://apps.apple.com/us/app/countdown-days-since-widget/id6759711261'
+const APP_STORE_URL = 'https://rebrand.ly/339d9b'
 
 export default function AppBanner() {
   return (
